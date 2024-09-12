@@ -4,15 +4,14 @@ import fr.iut.editeur.document.Document;
 
 public class CommandeAjouter extends CommandeDocument {
 
-
     public CommandeAjouter(Document document, String[] parameters) {
         super(document, parameters);
     }
 
     @Override
     public void executer() {
-        if(parameters.length < 2) {
-            System.err.println("Format attendu :  ajouter;texte");
+        if (parameters.length < 2) {
+            System.err.println("Format attendu : ajouter;texte");
             return;
         }
         String texte = parameters[1];
@@ -20,4 +19,8 @@ public class CommandeAjouter extends CommandeDocument {
         super.executer();
     }
 
+    @Override
+    public String getDescriptionCommande() {
+        return "Ajoute le texte spécifié à la fin du document. Format: ajouter;texte";
+    }
 }

@@ -10,28 +10,23 @@ public class CommandeRemplacer extends CommandeDocument {
 
     @Override
     public void executer() {
-        // Vérification du nombre de paramètres
         if (parameters.length < 4) {
-            System.err.println("Format attendu : remplacer;debut;fin;chaine");
+            System.err.println("Format attendu : remplacer;debut;fin;texte");
             return;
         }
-
         try {
-            // Extraction et conversion des paramètres
             int debut = Integer.parseInt(parameters[1]);
             int fin = Integer.parseInt(parameters[2]);
             String remplacement = parameters[3];
-
-            // Appel de la méthode remplacer dans Document
             this.document.remplacer(debut, fin, remplacement);
-
-            // Exécution de la commande
-            super.executer();
         } catch (NumberFormatException e) {
-            System.err.println("Les indices début et fin doivent être des entiers.");
-        } catch (IndexOutOfBoundsException e) {
-            System.err.println("Les indices sont hors des limites du document.");
+            System.err.println("Les indices doivent être des entiers valides.");
         }
+        super.executer();
+    }
+
+    @Override
+    public String getDescriptionCommande() {
+        return "Remplace le texte entre les positions spécifiées par le texte de remplacement. Format: remplacer;debut;fin;texte";
     }
 }
-

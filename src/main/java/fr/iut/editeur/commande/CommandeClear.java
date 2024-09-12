@@ -10,11 +10,13 @@ public class CommandeClear extends CommandeDocument {
 
     @Override
     public void executer() {
-        // Appel de la méthode clear dans Document
         this.document.clear();
-
-        // Exécution de la commande
         super.executer();
 
+    }
+
+    @Override
+    public String getDescriptionCommande() {
+        return "Efface tout le texte du document.";
     }
 }
