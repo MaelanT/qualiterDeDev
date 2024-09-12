@@ -4,6 +4,11 @@ import fr.iut.editeur.document.Document;
 
 public class CommandeMinuscule extends CommandeDocument {
 
+    @Override
+    public String getDescriptionCommande() {
+        return null;
+    }
+
     public CommandeMinuscule(Document document, String[] parameters) {
         super(document, parameters);
     }

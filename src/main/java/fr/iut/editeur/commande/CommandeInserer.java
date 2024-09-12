@@ -8,6 +8,11 @@ public class CommandeInserer extends CommandeDocument {
     }
 
     @Override
+    public String getDescriptionCommande() {
+        return null;
+    }
+
+    @Override
     public void executer() {
         // Appel de la méthode clear dans Document
         this.document.inserer();
